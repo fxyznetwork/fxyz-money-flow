@@ -1,5 +1,7 @@
 # @fxyz/money-flow (standalone)
 
+[![CI](https://github.com/fxyznetwork/fxyz-money-flow/actions/workflows/ci.yml/badge.svg)](https://github.com/fxyznetwork/fxyz-money-flow/actions/workflows/ci.yml)
+
 A gravity-model (Tinbergen) bilateral trade-flow globe, transaction-particle
 system, and member-point cloud, built on three.js / React Three Fiber.
 
