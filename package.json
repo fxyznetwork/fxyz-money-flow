@@ -1,0 +1,11 @@
+{
+	"name": "fxyz-money-flow-oss",
+	"version": "0.0.0",
+	"private": true,
+	"license": "Apache-2.0",
+	"packageManager": "pnpm@10.33.0",
+	"scripts": {
+		"typecheck": "pnpm -r exec tsc --noEmit",
+		"test": "pnpm -r exec vitest run"
+	}
+}
