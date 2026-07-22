@@ -11,13 +11,31 @@ component. Visualization only, no personal data by design — see
 [`packages/money-flow/README.md`](./packages/money-flow/README.md) for full
 usage.
 
+<!-- HERO_IMAGE -->
+
+## Live demo
+
+[`examples/vite-demo`](./examples/vite-demo) is a minimal Vite + React 19
+app that mounts the globe with the package's bundled example data — no
+backend, no real data. Run it locally:
+
+```sh
+pnpm install
+pnpm --filter @fxyz/money-flow-demo dev
+```
+
+A hosted build deploys to GitHub Pages on every push to `main` via
+[`.github/workflows/pages.yml`](./.github/workflows/pages.yml) (the workflow
+self-enables Pages on first run) → **[fxyznetwork.github.io/fxyz-money-flow](https://fxyznetwork.github.io/fxyz-money-flow/)**.
+
 ## Layout
 
-This is a pnpm workspace with a single package:
+This is a pnpm workspace with two members:
 
 | Package | What it is |
 |---|---|
 | `packages/money-flow` | The visualization package (`@fxyz/money-flow`). |
+| `examples/vite-demo` | Runnable Vite + React demo (`@fxyz/money-flow-demo`), not published. |
 
 ## The gravity model
 
