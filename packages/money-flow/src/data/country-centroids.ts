@@ -831,7 +831,7 @@ export const REGIONS: readonly Region[] = [
 
 /** Region color mapping. Mid-saturation, pulled from Stellar v3 family. */
 export const REGION_COLORS: Record<Region, string> = {
-	northAmerica: "#fbbc7a", // florin gold
+	northAmerica: "#fbbc7a", // warm amber
 	southAmerica: "#f59e0b", // amber
 	europe: "#60a5fa", // sky
 	africa: "#34d399", // emerald

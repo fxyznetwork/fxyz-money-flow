@@ -4,6 +4,17 @@
 	"type": "module",
 	"description": "Gravity-model (Tinbergen) bilateral trade-flow globe, transaction-particle system, and member-point cloud — three.js / React Three Fiber. Renders a plain dataset you provide; no backend required.",
 	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fxyznetwork/fxyz-money-flow.git"
+	},
+	"homepage": "https://github.com/fxyznetwork/fxyz-money-flow#readme",
+	"bugs": {
+		"url": "https://github.com/fxyznetwork/fxyz-money-flow/issues"
+	},
+	"engines": {
+		"node": ">=22"
+	},
 	"exports": {
 		".": "./src/index.ts"
 	},
@@ -11,27 +22,37 @@
 		"test": "vitest run",
 		"typecheck": "tsc --noEmit"
 	},
-	"dependencies": {
+	"devDependencies": {
 		"@react-three/drei": "^10.7.7",
 		"@react-three/fiber": "^9.6.1",
-		"three": "^0.184.0"
-	},
-	"devDependencies": {
 		"@types/node": "^22.0.0",
 		"@types/react": "^19.2.15",
 		"@types/three": "^0.184.1",
 		"next": "16.2.7",
 		"react": "^19.2.6",
+		"three": "^0.184.0",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.7"
 	},
 	"peerDependenciesMeta": {
 		"next": {
 			"optional": true
+		},
+		"@react-three/drei": {
+			"optional": false
+		},
+		"@react-three/fiber": {
+			"optional": false
+		},
+		"three": {
+			"optional": false
 		}
 	},
 	"peerDependencies": {
-		"next": "16.2.7",
-		"react": "^19.2.0"
+		"@react-three/drei": "^10.7.7",
+		"@react-three/fiber": "^9.6.1",
+		"next": "^16.0.0",
+		"react": "^19.2.0",
+		"three": "^0.184.0"
 	}
 }

@@ -11,7 +11,7 @@
 
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { eigenvectorCentrality } from "./data/centrality";
 import { COUNTRY_CENTROIDS } from "./data/country-centroids";
 import { debtRankAll } from "./data/debt-rank";
@@ -71,7 +71,7 @@ const initialControls: HudControls = {
 	topN: 0, // 0 = unlimited
 	triennialBlend: 0.7, // 0=pure gravity, 1=pure BIS Triennial 2025
 	quarter: null, // null = "latest available BIS LBS quarter"
-	useRealData: false, // off by default — no network calls out of the box; flip on to attempt /api/fx/bilateral against your own backend
+	useRealData: false, // off by default in both modes; opt in explicitly to attempt /api/fx/bilateral against your own backend
 	showMembers: true, // member-point cloud overlay
 	paused: false,
 	colorMode: "instrument",
@@ -82,15 +82,16 @@ const initialControls: HudControls = {
 	projectionMorph: 0,
 	// Geographic reference layers — both ride the projection morph.
 	showGraticule: true,
-	showBorders: true,
+	showBorders: false, // off by default — /borders-110m.json is not bundled; ship it yourself to enable
 };
 
 export interface MoneyFlowClientProps {
 	/**
 	 * "lab" — full HUD, every toggle exposed. Good for a demo/explore page.
-	 * "prod" — sealed defaults (real-data attempt on, member cloud anchored,
-	 * projection on globe, autorotate). Hides the HUD by default but the
-	 * user can still summon it via the "?" key (handled inside HudOverlay).
+	 * "prod" — sealed defaults (member cloud anchored, projection on globe,
+	 * autorotate; real-data fetching stays off — opt in via `useRealData`).
+	 * Hides the HUD by default but the user can still summon it via the "?"
+	 * key (handled inside HudOverlay).
 	 */
 	mode?: "lab" | "prod";
 	/**
@@ -102,11 +103,11 @@ export interface MoneyFlowClientProps {
 }
 
 const PROD_OVERRIDES: Partial<HudControls> = {
-	useRealData: true,
+	useRealData: false,
 	showMembers: true,
 	projectionMorph: 0,
 	showGraticule: true,
-	showBorders: true,
+	showBorders: false,
 	probeOnHover: true,
 	triennialBlend: 0, // pure real data; gravity-blend only as fallback
 	topN: 600, // tighter to prevent visual overload on first load
@@ -238,10 +239,12 @@ export function MoneyFlowClient({
 				)}
 
 				{controls.showBorders && (
-					<CountryBorders
-						radius={GLOBE_RADIUS}
-						morphAmount={controls.projectionMorph}
-					/>
+					<Suspense fallback={null}>
+						<CountryBorders
+							radius={GLOBE_RADIUS}
+							morphAmount={controls.projectionMorph}
+						/>
+					</Suspense>
 				)}
 
 				<BilateralCorridors

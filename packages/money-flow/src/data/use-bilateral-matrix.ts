@@ -15,10 +15,10 @@
  * `triennial-to-country-pairs.ts` produce — drop-in for `money-flow-client.tsx`.
  *
  * Quarter param: ISO date string `YYYY-MM-DD` for the quarter end (e.g.
- * `'2024-12-31'`). `null` → "latest available". The endpoint resolves "latest"
- * via `MATCH ()-[r:BILATERAL_BANKING_FLOW]->() RETURN max(r.quarterEnd)`.
+ * `'2024-12-31'`). `null` → "latest available"; your endpoint decides how to
+ * resolve "latest" (typically the most recent quarter-end it holds).
  *
- * **Caching (A5)** — module-level Map keyed by `${quarter}|${currency}|${measure}|${topN}`.
+ * **Caching** — module-level Map keyed by `${quarter}|${currency}|${measure}|${topN}`.
  * Survives across re-renders and component unmounts. Background prefetch fires
  * for ±N quarters around the current one once a fetch lands, so scrubbing
  * forward/backward stays instantaneous after the first navigation.

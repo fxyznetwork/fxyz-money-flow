@@ -57,14 +57,14 @@ interface TransactionParticlesProps {
 
 /**
  * Currency palette — chosen for visual distinction at small instance scale.
- * USD is the dominant flow (~50% of LBS) so it gets the Florin gold to read
+ * USD is the dominant flow (~50% of LBS) so it gets the warm amber to read
  * as the "background". Other majors are visually distinct.
  *
  * Citation for currency dominance: BIS LBS Q4 historical — USD ~48-52%, EUR
  * ~22-25%, JPY ~5-7%, GBP ~5-6%, CHF ~3%, CNY rising ~2-3%. Other = long tail.
  */
 const CURRENCY_COLORS: Record<string, string> = {
-	USD: "#fbbc7a", // Florin gold — dominant
+	USD: "#fbbc7a", // warm amber — dominant
 	EUR: "#5c7ad3", // blue
 	JPY: "#e87044", // orange-red
 	GBP: "#aec2f8", // pale blue

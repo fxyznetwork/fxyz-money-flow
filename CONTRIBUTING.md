@@ -21,17 +21,17 @@ Thanks for your interest in improving these packages.
 
 1. Fork and branch from `main`.
 2. Keep changes focused — one concern per PR.
-3. Match the surrounding code style. Formatting and linting use **Biome**
-   (`pnpm biome check --write`).
+3. Match the surrounding code style (TypeScript, kept consistent by hand — no
+   enforced formatter is configured in this repo).
 4. Add or update tests for behavior changes.
-5. Make sure `pnpm build`, `pnpm test`, and typecheck pass.
+5. Make sure `pnpm typecheck` and `pnpm test` pass.
 6. Write a clear PR description: what changed and why.
 
 ## Local development
 
 ```sh
 pnpm install
-pnpm build          # build all packages
+pnpm typecheck      # typecheck all packages
 pnpm test           # run the test suites
 ```
 

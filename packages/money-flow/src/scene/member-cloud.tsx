@@ -43,7 +43,7 @@ const SPECTRAL_COLORS: Record<string, string> = {
 	B: "#cad7f5",
 	A: "#dde4f3", // white
 	F: "#f4ecd8",
-	G: "#fbbc7a", // sun-yellow / Florin gold
+	G: "#fbbc7a", // warm amber
 	K: "#e87044", // orange
 	M: "#a8392a", // red
 	PROVISIONAL: "#5c7ad3",
